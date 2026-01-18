@@ -2,117 +2,26 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
+    <title>এক ক্লিকে ভিডিও লগইন</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎬 এক ক্লিকে ভিডিও লগইন</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'SolaimanLipi', sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 500px;
-            width: 100%;
-        }
-        
-        h1 {
-            color: #2575fc;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        .btn {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            font-size: 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            margin: 20px 0;
-            width: 100%;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(37, 117, 252, 0.3);
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(37, 117, 252, 0.4);
-        }
-        
-        .status {
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            display: none;
-            font-weight: bold;
-        }
-        
-        .loading {
-            background: #fff3cd;
-            color: #856404;
-            border-left: 5px solid #ffc107;
-        }
-        
-        .success {
-            background: #d4edda;
-            color: #155724;
-            border-left: 5px solid #28a745;
-        }
-        
-        .qr-code {
-            margin: 30px auto;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            display: inline-block;
-        }
-        
-        .info-box {
-            background: #e7f3ff;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: left;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            .btn {
-                padding: 15px 30px;
-                font-size: 18px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial; }
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 500px; margin: 50px auto; background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h1 { color: #333; text-align: center; margin-bottom: 20px; }
+        .btn { display: block; width: 100%; padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin: 20px 0; }
+        .btn:hover { opacity: 0.9; }
+        .status { padding: 15px; border-radius: 8px; margin: 15px 0; text-align: center; display: none; }
+        .loading { background: #ffcc00; color: #333; }
+        .success { background: #4CAF50; color: white; }
+        .error { background: #f44336; color: white; }
+        .info { background: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 20px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🎬 এক ক্লিকে ভিডিও লগইন</h1>
-        <p style="color: #666; margin-bottom: 30px;">ক্লিক করলেই লগইন হবে এবং ভিডিও চালু হবে</p>
+        <p style="text-align: center; margin-bottom: 20px; color: #666;">ক্লিক করলেই লগইন + ভিডিও চালু</p>
         
         <div id="status" class="status"></div>
         
@@ -121,27 +30,16 @@
             <span id="loadingText" style="display:none;">⏳ লগইন হচ্ছে...</span>
         </button>
         
-        <div class="qr-code">
-            <div id="qrcode"></div>
-            <p style="margin-top: 10px; color: #666;">QR কোড স্ক্যান করুন</p>
-        </div>
-        
-        <div class="info-box">
-            <h3 style="color: #2575fc; margin-bottom: 10px;">📱 কিভাবে কাজ করে?</h3>
+        <div class="info">
+            <h3>📱 কিভাবে কাজ করে?</h3>
             <p>1. উপরের বাটনে ক্লিক করুন</p>
-            <p>2. আমাদের সার্ভার লগইন করবে</p>
-            <p>3. আপনি সরাসরি ভিডিও পেজে যাবেন</p>
-            <p>4. কোনো ম্যানুয়াল লগইন লাগবে না</p>
+            <p>2. লগইন হবে অটোমেটিক</p>
+            <p>3. ভিডিও চালু হবে</p>
+            <p>✅ কোনো ম্যানুয়াল লগইন লাগবে না</p>
         </div>
     </div>
 
-    <!-- QR Code Library -->
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-    
     <script>
-        // সার্ভার URL (আপনার সার্ভারে proxy-login.php ফাইল আপলোড করুন)
-        const proxyUrl = 'proxy-login.php'; // আপনার সার্ভার পাথ
-        
         function updateStatus(message, type = 'loading') {
             const status = document.getElementById('status');
             status.textContent = message;
@@ -151,90 +49,101 @@
         
         function startAutoLogin() {
             const btn = document.getElementById('loginBtn');
-            const btnText = document.getElementById('btnText');
-            const loadingText = document.getElementById('loadingText');
-            
-            // বাটন স্টেট চেঞ্জ
             btn.disabled = true;
-            btnText.style.display = 'none';
-            loadingText.style.display = 'inline';
+            document.getElementById('btnText').style.display = 'none';
+            document.getElementById('loadingText').style.display = 'inline';
             
-            updateStatus('🔐 সার্ভারে লগইন রিকুয়েস্ট পাঠানো হচ্ছে...', 'loading');
+            updateStatus('🔐 লগইন প্রক্রিয়া শুরু...', 'loading');
             
-            // পদ্ধতি ১: প্রোক্সি সার্ভার ব্যবহার
+            // 1. প্রথমে লগইন পেজে যান
             setTimeout(() => {
-                updateStatus('✅ সার্ভার লগইন করছে... ৩ সেকেন্ডে রিডাইরেক্ট', 'success');
+                updateStatus('✅ লগইন পেজ লোড হচ্ছে...', 'success');
                 
-                // নতুন ট্যাবে প্রোক্সি পেজ ওপেন
-                window.open(proxyUrl, '_blank');
+                // লগইন পেজে রিডাইরেক্ট
+                const loginPage = window.open(
+                    'https://course.itminanpublications.com/wp-login.php?redirect_to=' + 
+                    encodeURIComponent('https://course.itminanpublications.com/courses/class-nursery-video-course/lessons/nursari-bangla-01/?page_tab=overview'),
+                    '_blank'
+                );
                 
-                // ৩ সেকেন্ড পর ভিডিও পেজ চেক
+                // 2. লগইন ফর্ম অটোফিল
                 setTimeout(() => {
-                    checkVideoAccess();
-                }, 3000);
+                    updateStatus('🔄 লগইন তথ্য পাঠানো হচ্ছে...', 'loading');
+                    
+                    // যদি লগইন পেজ ওপেন থাকে
+                    if(loginPage) {
+                        try {
+                            // লগইন স্ক্রিপ্ট পাঠান
+                            const autoLoginScript = `
+                                setTimeout(function() {
+                                    // ইউজারনেম ফিল্ড খুঁজুন
+                                    var usernameFields = document.querySelectorAll('input[type="text"], input[type="email"], input[name*="user"], input[name*="login"]');
+                                    // পাসওয়ার্ড ফিল্ড খুঁজুন
+                                    var passwordFields = document.querySelectorAll('input[type="password"], input[name*="pass"]');
+                                    
+                                    if(usernameFields.length > 0 && passwordFields.length > 0) {
+                                        // মান সেট করুন
+                                        usernameFields[0].value = 'mochna11';
+                                        passwordFields[0].value = '543792';
+                                        
+                                        // ইভেন্ট ট্রিগার
+                                        usernameFields[0].dispatchEvent(new Event('input', {bubbles: true}));
+                                        passwordFields[0].dispatchEvent(new Event('input', {bubbles: true}));
+                                        
+                                        // 2 সেকেন্ড পর সাবমিট
+                                        setTimeout(function() {
+                                            var forms = document.getElementsByTagName('form');
+                                            if(forms.length > 0) {
+                                                forms[0].submit();
+                                            }
+                                        }, 2000);
+                                        
+                                        alert('লগইন তথ্য পূরণ করা হয়েছে! ২ সেকেন্ডে লগইন হবে...');
+                                    } else {
+                                        alert('লগইন ফর্ম পাওয়া যায়নি। ম্যানুয়ালি লগইন করুন:\\n\\nইউজার: mochna11\\nপাস: 543792');
+                                    }
+                                }, 3000);
+                            `;
+                            
+                            // স্ক্রিপ্ট পাঠান
+                            loginPage.postMessage({script: autoLoginScript}, '*');
+                            
+                            updateStatus('✅ লগইন তথ্য পাঠানো হয়েছে!', 'success');
+                            
+                        } catch(e) {
+                            updateStatus('⚠️ ব্রাউজার সিকিউরিটি সমস্যা। বিকল্প পদ্ধতি...', 'error');
+                            manualLogin();
+                        }
+                    } else {
+                        manualLogin();
+                    }
+                }, 4000);
+                
+                // 3. ভিডিও চেক
+                setTimeout(() => {
+                    updateStatus('🎬 ভিডিও লোড হচ্ছে...', 'loading');
+                    window.open('https://course.itminanpublications.com/courses/class-nursery-video-course/lessons/nursari-bangla-01/?page_tab=overview', '_blank');
+                    resetButton();
+                }, 8000);
                 
             }, 1000);
         }
         
-        function checkVideoAccess() {
-            updateStatus('🎬 ভিডিও পেজ চেক করা হচ্ছে...', 'loading');
+        function manualLogin() {
+            updateStatus('📝 ম্যানুয়াল লগইন তথ্য:', 'loading');
             
-            // সরাসরি ভিডিও পেজে যাওয়ার চেষ্টা
-            const videoUrl = 'https://course.itminanpublications.com/courses/class-nursery-video-course/lessons/nursari-bangla-01/?page_tab=overview';
+            const loginInfo = `লগইন তথ্য:\n\nইউজারনেম: mochna11\nপাসওয়ার্ড: 543792\n\nভিডিও লিঙ্ক:\nhttps://course.itminanpublications.com/courses/class-nursery-video-course/lessons/nursari-bangla-01/\n\nএই তথ্য দিয়ে লগইন করুন।`;
             
-            // একটি হিডেন iframe তৈরি করে চেক করুন
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = videoUrl;
-            iframe.onload = function() {
-                updateStatus('✅ ভিডিও পেজ অ্যাক্সেস করা গেছে!', 'success');
-                
-                // ২ সেকেন্ড পর ব্যবহারকারীকে ভিডিও পেজে নিয়ে যান
-                setTimeout(() => {
-                    window.open(videoUrl, '_blank');
-                    resetButton();
-                }, 2000);
-            };
-            
-            iframe.onerror = function() {
-                updateStatus('⚠️ লগইন প্রয়োজন। প্রোক্সি সার্ভার চেষ্টা করা হচ্ছে...', 'loading');
-                
-                // প্রোক্সি সার্ভার ব্যবহার করে আবার চেষ্টা
-                window.open(proxyUrl + '?retry=true', '_blank');
-                
-                setTimeout(() => {
-                    resetButton();
-                }, 5000);
-            };
-            
-            document.body.appendChild(iframe);
+            alert(loginInfo);
+            resetButton();
         }
         
         function resetButton() {
             const btn = document.getElementById('loginBtn');
-            const btnText = document.getElementById('btnText');
-            const loadingText = document.getElementById('loadingText');
-            
             btn.disabled = false;
-            btnText.style.display = 'inline';
-            loadingText.style.display = 'none';
+            document.getElementById('btnText').style.display = 'inline';
+            document.getElementById('loadingText').style.display = 'none';
         }
-        
-        // QR কোড তৈরি
-        window.onload = function() {
-            if(typeof QRCode !== 'undefined') {
-                // বর্তমান URL দিয়ে QR কোড তৈরি
-                const currentUrl = window.location.href.split('?')[0];
-                new QRCode(document.getElementById("qrcode"), {
-                    text: currentUrl,
-                    width: 150,
-                    height: 150,
-                    colorDark : "#2575fc",
-                    colorLight : "#ffffff",
-                    correctLevel : QRCode.CorrectLevel.H
-                });
-            }
-        };
     </script>
 </body>
 </html>
