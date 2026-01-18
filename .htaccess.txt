@@ -1,0 +1,10 @@
+<Files "cookies.txt">
+Order Allow,Deny
+Deny from all
+</Files>
+
+<Files "*.php">
+Allow from all
+</Files>
+
+ErrorDocument 404 /index.html
